@@ -1,9 +1,29 @@
 import { useState } from 'react';
-import { ArrowRight, Check, MessageSquare, TrendingUp, Search, FileText, Star, Zap } from 'lucide-react';
+import { ArrowRight, Check, MessageSquare, TrendingUp, Search, FileText, Star, Zap, Sparkles, Shield } from 'lucide-react';
 
 const solutions = [
   {
-    id: 'chatbot', Icon: MessageSquare, num: '01',
+    id: 'recommendations', Icon: Sparkles, num: '01',
+    title: 'AI Recommendation Engine',
+    headline: 'Turn analytics into next-best actions',
+    desc: 'In-house ML reads visitor patterns, traffic forecasts, risk signals and compliance events, then recommends exactly what teams should do next.',
+    before: ['Dashboards show numbers but no action', 'Managers manually interpret trends', 'Missed risks until they become escalations', 'Teams repeat the same operational mistakes'],
+    after:  ['AI suggests the next best action', 'Forecasts become staffing and security tasks', 'Risk signals are prioritized automatically', 'Every recommendation has a clear business reason'],
+    metrics: [{ v: 'AI', l: 'Actions' }, { v: '40%', l: 'Faster decisions' }, { v: '24/7', l: 'Monitoring' }, { v: '100%', l: 'In-house' }],
+    client: 'Your analytics will not just explain what happened. They will tell your team what to do next, before the lobby gets busy or risk increases.',
+  },
+  {
+    id: 'vendors', Icon: Shield, num: '02',
+    title: 'Vendor & Contractor Management',
+    headline: 'Validate every contractor before arrival',
+    desc: 'AI checks certifications, contracts, insurance documents and expiry dates before vendors reach reception, keeping banks, hospitals and enterprises audit-ready.',
+    before: ['Manual document review by reception or admin', 'Expired insurance missed at check-in', 'No single view of contractor compliance', 'Audit evidence scattered across emails'],
+    after:  ['AI validates every required document', 'Expired certifications are blocked automatically', 'Contractor status visible before arrival', 'Audit-ready vendor history in one place'],
+    metrics: [{ v: 'Auto', l: 'Validation' }, { v: '0', l: 'Expired docs' }, { v: '5 min', l: 'Review time' }, { v: 'Bank', l: 'Ready' }],
+    client: 'Banks and healthcare facilities can approve only compliant contractors, block expired documents automatically and prove every check during audits.',
+  },
+  {
+    id: 'chatbot', Icon: MessageSquare, num: '03',
     title: 'AI Chatbot Pre-Registration',
     headline: 'From 2 minutes to 30 seconds',
     desc: 'Visitors type who they are visiting — the AI auto-fills name, host, purpose and prints the badge. No forms, no friction, no queues.',
@@ -13,7 +33,7 @@ const solutions = [
     client: 'Your visitors will register 3× faster and reception staff will stop answering the same questions all day.',
   },
   {
-    id: 'forecast', Icon: TrendingUp, num: '02',
+    id: 'forecast', Icon: TrendingUp, num: '04',
     title: 'Predictive Traffic Forecasting',
     headline: 'Know next week\'s visitors today',
     desc: 'ML models trained on your historical data predict visitor volume with ±8% accuracy. Schedule the right number of staff before rush hours arrive.',
@@ -23,7 +43,7 @@ const solutions = [
     client: 'You will know exactly how many visitors to expect so staffing is always right — no overtime, no gaps.',
   },
   {
-    id: 'nlsearch', Icon: Search, num: '03',
+    id: 'nlsearch', Icon: Search, num: '05',
     title: 'Natural Language Search',
     headline: 'Plain English. Results in 3 seconds.',
     desc: 'Security staff type a plain question — "Show all KPMG visitors last week" — instead of clicking 5 filter dropdowns. Critical during emergencies.',
@@ -33,7 +53,7 @@ const solutions = [
     client: 'During emergencies your team gets instant answers. No more panic-clicking through filters when every second counts.',
   },
   {
-    id: 'compliance', Icon: FileText, num: '04',
+    id: 'compliance', Icon: FileText, num: '06',
     title: 'Auto Compliance Reports',
     headline: '10 hours of manual work in 5 minutes',
     desc: 'AI pulls visitor data and formats it into audit-ready reports for HIPAA, SOX, GDPR and banking regulations — automatically, on schedule.',
@@ -45,13 +65,14 @@ const solutions = [
 ];
 
 const whatsInside = [
-  { n: '01', label: 'AI Chatbot Pre-Registration' },
-  { n: '02', label: 'Printed visitor badge' },
-  { n: '03', label: 'Natural Language Search' },
+  { n: '01', label: 'AI Recommendation Engine' },
+  { n: '02', label: 'Vendor & Contractor Management' },
+  { n: '03', label: 'AI Chatbot Pre-Registration' },
   { n: '04', label: 'Predictive Traffic Forecasting' },
-  { n: '05', label: 'Self-service kiosk' },
+  { n: '05', label: 'Natural Language Search' },
   { n: '06', label: 'Auto Compliance Reports' },
-  { n: '07', label: 'Access Control & ANPR Integration' },
+  { n: '07', label: 'Printed visitor badge' },
+  { n: '08', label: 'Access Control & ANPR Integration' },
 ];
 
 const testimonials = [
@@ -85,11 +106,11 @@ export default function HomePage({ onNav }) {
             </h1>
 
             <p style={{ fontSize: 16, color: 'var(--muted)', lineHeight: 1.75, marginBottom: 32, maxWidth: 440 }}>
-              AI-powered check-in, predictive forecasting, plain-English search and automated compliance — everything your front desk needs, reimagined.
+              AI recommendations, contractor validation, AI-powered check-in, predictive forecasting, plain-English search and automated compliance — everything your front desk needs, reimagined.
             </p>
 
             <div style={{ display: 'flex', gap: 10 }}>
-              <button onClick={() => onNav('chatbot')}
+              <button onClick={() => onNav('recommendations')}
                 style={{ padding: '12px 26px', borderRadius: 8, border: 'none', background: '#1B4FD8', color: '#fff', fontSize: 14, fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6, boxShadow: '0 2px 10px rgba(27,79,216,0.3)', transition: 'all 0.15s' }}
                 onMouseEnter={e => { e.currentTarget.style.background = '#1541B8'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = '#1B4FD8'; e.currentTarget.style.transform = 'none'; }}
@@ -132,7 +153,7 @@ export default function HomePage({ onNav }) {
             <div style={{ background: '#F9FAFB', border: '1px solid var(--border)', borderRadius: 12, padding: '18px 20px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
                 <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.6px' }}>What's inside</span>
-                <button onClick={() => onNav('chatbot')} style={{ fontSize: 12, color: '#1B4FD8', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 500 }}>See all features ↗</button>
+                <button onClick={() => onNav('recommendations')} style={{ fontSize: 12, color: '#1B4FD8', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 500 }}>See all features ↗</button>
               </div>
               <div>
                 {whatsInside.map((f, i) => (
@@ -152,7 +173,7 @@ export default function HomePage({ onNav }) {
         <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 28px' }}>
 
           <div style={{ marginBottom: 52 }}>
-            <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: 12 }}>4 AI-Powered Solutions</div>
+            <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: 12 }}>6 AI-Powered Solutions</div>
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 42, fontWeight: 700, color: 'var(--text)', lineHeight: 1.15, maxWidth: 560 }}>
               Transform every touchpoint with intelligence
             </h2>
@@ -280,14 +301,16 @@ export default function HomePage({ onNav }) {
         <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 28px' }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: 10 }}>Combined Impact</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 36, fontWeight: 700, color: 'var(--text)' }}>All 4 solutions together</h2>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 36, fontWeight: 700, color: 'var(--text)' }}>All 6 solutions together</h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 16 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16 }}>
             {[
-              { sol: 'AI Chatbot',     saved: '80% fewer staff questions', benefit: 'Visitors register 3× faster' },
-              { sol: 'Forecasting',    saved: '5+ hours/week on scheduling', benefit: 'Never over or understaff again' },
-              { sol: 'NL Search',      saved: '1–2 minutes per search',      benefit: 'Instant emergency response' },
-              { sol: 'Compliance AI',  saved: '10+ hours/week reporting',     benefit: 'Always audit-ready automatically' },
+              { sol: 'Recommendations', saved: '40% faster decisions',          benefit: 'Analytics become clear actions' },
+              { sol: 'Vendor AI',       saved: 'Manual document checks',        benefit: 'Only compliant contractors enter' },
+              { sol: 'AI Chatbot',      saved: '80% fewer staff questions',     benefit: 'Visitors register 3× faster' },
+              { sol: 'Forecasting',     saved: '5+ hours/week on scheduling',   benefit: 'Never over or understaff again' },
+              { sol: 'NL Search',       saved: '1–2 minutes per search',        benefit: 'Instant emergency response' },
+              { sol: 'Compliance AI',   saved: '10+ hours/week reporting',      benefit: 'Always audit-ready automatically' },
             ].map((r, i) => (
               <div key={r.sol} style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 12, padding: '22px 20px' }}>
                 <div style={{ fontSize: 11, fontWeight: 700, color: '#1B4FD8', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 10 }}>Solution {String(i + 1).padStart(2, '0')}</div>
@@ -298,7 +321,7 @@ export default function HomePage({ onNav }) {
             ))}
           </div>
           <div style={{ marginTop: 24, background: '#fff', border: '1px solid var(--border)', borderRadius: 12, padding: '20px 28px', display: 'flex', justifyContent: 'space-around' }}>
-            {[['25+ hours', 'Saved every week'], ['3× faster', 'Visitor experience'], ['24/7', 'Automated support'], ['Proactive', 'Not reactive']].map(([v, l]) => (
+            {[['40+ hours', 'Saved every week'], ['3× faster', 'Visitor experience'], ['24/7', 'Automated support'], ['Proactive', 'Not reactive']].map(([v, l]) => (
               <div key={l} style={{ textAlign: 'center' }}>
                 <div style={{ fontSize: 22, fontWeight: 800, color: 'var(--text)', marginBottom: 3 }}>{v}</div>
                 <div style={{ fontSize: 12, color: 'var(--muted)', fontWeight: 500 }}>{l}</div>
@@ -339,7 +362,7 @@ export default function HomePage({ onNav }) {
             Ready to transform your<br />visitor experience?
           </h2>
           <p style={{ fontSize: 15, color: '#6B7280', marginBottom: 36, maxWidth: 440, margin: '0 auto 36px', lineHeight: 1.7 }}>
-            25+ hours saved weekly. 3× faster check-in. Always audit-ready. Software-only — no hardware changes required.
+            40+ hours saved weekly. 3× faster check-in. Contractor validation and audit-ready compliance. Software-only — no hardware changes required.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center' }}>
             <button onClick={() => onNav('chatbot')}
@@ -372,7 +395,7 @@ export default function HomePage({ onNav }) {
               </p>
             </div>
             {[
-              { title: 'AI Solutions', links: ['AI Chatbot', 'Traffic Forecasting', 'NL Search', 'Compliance Reports'] },
+              { title: 'AI Solutions', links: ['Recommendation Engine', 'Vendor Management', 'AI Chatbot', 'Traffic Forecasting', 'NL Search', 'Compliance Reports'] },
               { title: 'Industries',   links: ['Healthcare', 'Banking', 'Corporate', 'Hotels'] },
               { title: 'Company',      links: ['About', 'Customers', 'Partners', 'Request Demo'] },
             ].map(col => (

@@ -1,7 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
-import { ChevronDown, Zap, MessageSquare, TrendingUp, Search, FileText, ArrowRight } from 'lucide-react';
+import { ChevronDown, Zap, MessageSquare, TrendingUp, Search, FileText, ArrowRight, Sparkles, Shield } from 'lucide-react';
 
 const solutions = [
+  { icon: Sparkles,      label: 'AI Recommendation Engine',       desc: 'Turn analytics into next-best actions',       id: 'recommendations' },
+  { icon: Shield,        label: 'Vendor & Contractor Management', desc: 'Validate contracts, insurance and certificates', id: 'vendors'         },
   { icon: MessageSquare, label: 'AI Chatbot Pre-Registration',    desc: 'Check in visitors in 30 seconds via chat',  id: 'chatbot'    },
   { icon: TrendingUp,    label: 'Predictive Traffic Forecasting', desc: 'Know visitor volume days in advance',       id: 'forecast'   },
   { icon: Search,        label: 'Natural Language Search',        desc: 'Find records by typing plain English',      id: 'nlsearch'   },
@@ -81,11 +83,11 @@ export default function Navbar({ onNav }) {
             <div style={{
               position: 'absolute', top: 'calc(100% + 8px)', left: 0,
               background: '#fff', borderRadius: 12, border: '1px solid var(--border)',
-              boxShadow: 'var(--shadow-lg)', padding: '6px', width: 380,
+              boxShadow: 'var(--shadow-lg)', padding: '6px', width: 420,
               animation: 'fadeUp 0.15s ease',
             }}>
               <div style={{ fontSize: 10, fontWeight: 700, color: 'var(--muted-l)', letterSpacing: '0.8px', textTransform: 'uppercase', padding: '6px 10px 8px' }}>
-                4 AI-Powered Solutions
+                6 AI-Powered Solutions
               </div>
               {solutions.map(s => {
                 const Icon = s.icon;

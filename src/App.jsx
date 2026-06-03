@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Navbar          from './components/Navbar';
 import FloatingChatbot from './components/FloatingChatbot';
 import HomePage        from './pages/HomePage';
+import RecommendationPage from './pages/RecommendationPage';
+import VendorPage      from './pages/VendorPage';
 import ChatbotPage     from './pages/ChatbotPage';
 import ForecastPage    from './pages/ForecastPage';
 import SearchPage      from './pages/SearchPage';
@@ -11,10 +13,12 @@ import SettingsPage    from './pages/SettingsPage';
 import './index.css';
 
 const PAGE_META = {
-  chatbot:    { title: 'AI Chatbot Pre-Registration',    tag: 'Solution 01' },
-  forecast:   { title: 'Predictive Traffic Forecasting', tag: 'Solution 02' },
-  nlsearch:   { title: 'Natural Language Search',        tag: 'Solution 03' },
-  compliance: { title: 'Auto Compliance Reports',        tag: 'Solution 04' },
+  recommendations: { title: 'AI Recommendation Engine',       tag: 'Solution 01' },
+  vendors:         { title: 'Vendor & Contractor Management', tag: 'Solution 02' },
+  chatbot:         { title: 'AI Chatbot Pre-Registration',    tag: 'Solution 03' },
+  forecast:        { title: 'Predictive Traffic Forecasting', tag: 'Solution 04' },
+  nlsearch:        { title: 'Natural Language Search',        tag: 'Solution 05' },
+  compliance:      { title: 'Auto Compliance Reports',        tag: 'Solution 06' },
   visitors:   { title: 'Visitor Management',             tag: 'Live Data'   },
   settings:   { title: 'Platform Settings',              tag: 'Configuration' },
 };
@@ -56,6 +60,8 @@ export default function App() {
       return <HomePage onNav={handleNav} />;
     }
     const inner = {
+      recommendations: <RecommendationPage />,
+      vendors:         <VendorPage />,
       chatbot:    <ChatbotPage />,
       forecast:   <ForecastPage />,
       nlsearch:   <SearchPage />,
